@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: almeida.fernando.wshop.spboot2heroku.Spboot2HerokuApplicat
+ ion
+
