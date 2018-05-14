@@ -29,6 +29,11 @@ public class ExerciseService {
 		exerciseRepository.delete(ex);
 	}
 
+	public void insertAll(List<Exercise> exercises){
+		//exerciseRepository.saveAll(exercises); //before J8
+		exercises.stream().forEach(exercise -> exerciseRepository.insert(exercise) ); //for parallelStream I should use Mono and Flux(Reactive MongoDB)
+	}
+
 	public Exercise insert(Exercise exercise) {
 		if(StringUtils.isEmpty(exercise.getId())){
 			return exerciseRepository.insert(exercise);

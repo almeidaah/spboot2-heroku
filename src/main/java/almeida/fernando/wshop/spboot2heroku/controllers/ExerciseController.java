@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/exercises")
@@ -41,6 +42,13 @@ public class ExerciseController {
 	public ResponseEntity<Exercise> insert(@RequestBody Exercise exercise){
 		exerciseService.insert(exercise);
 		return new ResponseEntity<>(exercise, HttpStatus.CREATED);
-	}	
-	
+	}
+
+	@PostMapping("/insertAll")
+	@ResponseBody
+	public ResponseEntity<String> insertAll(@RequestBody List<Exercise> exercises){
+		exerciseService.insertAll(exercises);
+		return new ResponseEntity<>(exercises.size() + " registros inseridos com sucesso.", HttpStatus.CREATED);
+	}
+
 }

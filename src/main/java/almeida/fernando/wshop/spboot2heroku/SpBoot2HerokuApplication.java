@@ -8,5 +8,4 @@ public class SpBoot2HerokuApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpBoot2HerokuApplication.class, args);
     }
-
 }
