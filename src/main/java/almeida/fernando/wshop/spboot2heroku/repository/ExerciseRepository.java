@@ -7,4 +7,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ExerciseRepository extends MongoRepository<Exercise, String> {
 
+    @Override
+    void delete(Exercise exercise);
+
+    @Override
+    <S extends Exercise> S insert(S s);
+
+    @Override
+    <S extends Exercise> S save(S s);
+
+
 }

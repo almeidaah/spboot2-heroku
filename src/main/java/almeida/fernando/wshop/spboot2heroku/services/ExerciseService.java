@@ -29,9 +29,8 @@ public class ExerciseService {
 		exerciseRepository.delete(ex);
 	}
 
-	public void insertAll(List<Exercise> exercises){
-		//exerciseRepository.saveAll(exercises); //before J8
-		exercises.stream().forEach(exercise -> exerciseRepository.insert(exercise) ); //for parallelStream I should use Mono and Flux(Reactive MongoDB)
+	public void deleteAll(List<Exercise> exercises){
+		exercises.stream().forEach(exercise -> exerciseRepository.delete(exercise));
 	}
 
 	public Exercise insert(Exercise exercise) {
@@ -39,6 +38,11 @@ public class ExerciseService {
 			return exerciseRepository.insert(exercise);
 		}
 		return exerciseRepository.save(exercise);
+	}
+
+	public void insertAll(List<Exercise> exercises){
+		//exerciseRepository.saveAll(exercises); //before J8
+		exercises.stream().forEach(exercise -> exerciseRepository.insert(exercise) ); //for parallelStream I should use Mono and Flux(Reactive MongoDB)
 	}
 
 }
